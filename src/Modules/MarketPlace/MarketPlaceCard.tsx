@@ -5,7 +5,7 @@ import {
   IconUserOutline,
   IconlocationOutline,
   IconLikePostCard,
-} from '../icons/marketplaceIcons';
+} from '@/components/icons/marketplaceIcons';
 import {Divider, Rate} from 'antd';
 
 const MarketPlaceCard = ({
@@ -38,7 +38,7 @@ const MarketPlaceCard = ({
 
         {/* card footer part  */}
         <div>
-          {/* icons part 1 start */}
+          {/* icons style 1 start */}
           <div className="flex items-center gap-4 lg:gap-2 xl:gap-4">
             {/* icon 1 */}
             <div className="flex items-center gap-2">
@@ -59,7 +59,7 @@ const MarketPlaceCard = ({
             </div>
           </div>
 
-          {/* icons part 2 start  */}
+          {/* icons style 2 start  */}
           <div className="flex items-center gap-4">
             {/* icon 1 */}
             <div className="flex items-center gap-2">
@@ -74,7 +74,7 @@ const MarketPlaceCard = ({
             </div>
           </div>
 
-          {/* icons part 3 start  */}
+          {/* icons style 3 start  */}
           <div className="flex items-center justify-between">
             {/* icon 1 */}
             <div className="flex items-center gap-2">
@@ -96,7 +96,7 @@ const MarketPlaceCard = ({
           {/* divider */}
           <Divider className="my-4" />
 
-          {/* pricing and review */}
+          {/* pricing and review style 1 */}
           <div className="flex items-center justify-between">
             <div className="text-[25px] font-semibold">
               <del className="mr-2.5 text-2xl font-normal text-ezy-gray-400">
@@ -110,7 +110,7 @@ const MarketPlaceCard = ({
             </div>
           </div>
 
-          {/* pricing and button */}
+          {/* pricing and button style 2 */}
           <div className="flex items-center justify-between">
             <div className="text-lg font-medium">${afterDiscountPrice}</div>
             <div className="flex items-center justify-center gap-[2px]">
