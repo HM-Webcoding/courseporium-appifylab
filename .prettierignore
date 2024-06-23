@@ -1,0 +1,12 @@
+# NOTE: In general this should be kept in sync with .eslintignore
+
+**/dist/*.js
+**/build/*.js
+**/npm/**/*
+**/config/*.js
+**/*.md
+**/node_modules
+.prettierignore
+.next
+public
+pnpm-lock.yaml

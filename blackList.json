@@ -1,0 +1,8 @@
+{
+  "SITE_OWNER": [],
+  "SITE_ADMIN": [
+    "/dashboard/payment_owed",
+    "/dashboard/membership",
+    "/dashboard/billing"
+  ]
+}

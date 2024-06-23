@@ -1,0 +1,76 @@
+name: Frontend build
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**trigger_file.txt"
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # - name: Enabling swapfile...
+      #   run: swapon /swapfile
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache-dependency-path: "**/package.json"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm install --force
+
+      - name: Copying env...
+        run: |
+          cp .env.prod .env
+          export NEXT_PUBLIC_NODE_ENV=production
+
+      - name: Restoring cache...
+        uses: actions/cache@v3
+        with:
+          # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package.json') }}-
+
+      - name: Building...
+        run: npm run build --if-present
+
+      # - name: Disabling swapfile...
+      #   run: swapoff /swapfile
+
+      - name: Moving build folders to client...
+        run: |
+          rm -rf /root/client/.next
+          mv .next /root/client/
+
+          rm -rf /root/client/node_modules
+          mv node_modules /root/client/
+
+          cp package.json next.config.js blackList.json whiteList.json ecosystem.config.js /root/client/
+
+          rm -rf /root/client/public
+          cp -R public /root/client/
+
+      - name: Restarting client...
+        run: |
+          cd /root/client
+          export PM2_HOME=/root/.pm2
+          pm2 list
+          pm2 reload frontend --update-env

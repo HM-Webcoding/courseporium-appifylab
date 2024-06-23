@@ -1,0 +1,22 @@
+{
+  "css.customData": [".vscode/tailwind.json"],
+  "prettier.singleQuote": true,
+  "prettier.bracketSameLine": true,
+  "prettier.endOfLine": "auto",
+  "prettier.arrowParens": "avoid",
+  "prettier.bracketSpacing": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "workbench.editor.customLabels.patterns": {
+    // Next JS
+    "**/src/pages/_app.tsx": "App file",
+    "**/src/pages/_document.tsx": "Document file",
+    "**/src/pages/**/index.tsx": "${dirname} - Page"
+  }
+}

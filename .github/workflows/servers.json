@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Staging",
+    "ip": "52.224.246.243",
+    "username": "ezycourse",
+    "port": "22",
+    "beforeHooks": "",
+    "afterHooks": "",
+    "path": "/home/ezycourse/frontend",
+    "type": "staging"
+  },
+  {
+    "name": "Server 1",
+    "ip": "3.69.50.25",
+    "username": "ubuntu",
+    "port": "22",
+    "beforeHooks": "",
+    "afterHooks": "",
+    "path": "/home/ubuntu/frontend",
+    "type": "prod"
+  },
+  {
+    "name": "Server 2",
+    "ip": "18.194.37.130",
+    "username": "ubuntu",
+    "port": "22",
+    "beforeHooks": "",
+    "afterHooks": "",
+    "path": "/home/ubuntu/frontend",
+    "type": "prod"
+  }
+]

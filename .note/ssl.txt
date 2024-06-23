@@ -1,0 +1,187 @@
+certbot run --non-interactive --nginx --agree-tos -m sadek.hkm@gmail.com -d heroes.soulrapha.org
+certbot --nginx -d heroes.soulrapha.org --staging
+
+certbot run -a webroot -i nginx -w /var/www/html -d rajeshgurule.com
+
+echo "" > /etc/nginx/sites-available/rajeshgurule.com
+
+nano /etc/nginx/sites-available/rajeshgurule.com
+
+echo "
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    location ^~ /.well-known/acme-challenge/ {
+        allow all;
+        root /var/www/html;
+    }
+
+    server_name heroes.soulrapha.org;
+
+    location / {
+        proxy_set_header  X-Forwarded-For    $proxy_add_x_forwarded_for;
+        proxy_pass http://localhost:3000/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto  $scheme;
+        proxy_set_header Accept-Encoding    "";
+        proxy_set_header Proxy              "";
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location /api/ {
+        rewrite ^/api/(.*) /$1 break;
+        proxy_pass http://localhost:3333/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header  X-Forwarded-For    $proxy_add_x_forwarded_for;
+        proxy_set_header  X-Forwarded-Proto  $scheme;
+        proxy_set_header  Accept-Encoding    "";
+        proxy_set_header  Proxy              "";
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+" > /etc/nginx/sites-available/heroes.soulrapha.org
+
+service nginx reload
+
+
+sudo certbot certonly --manual -d heroes.soulrapha.org --preferred-challenges http
+
+// they will give a file to put in .well-known/acme-challenge/ folder and a content to put in that file
+
+mkdir -p /var/www/your_domain/html/.well-known/acme-challenge
+
+echo "ZxnKb3TzZdJTMqNrZZAu5UjD73nvpL67WI1ceesShWY.S5JLzuWifw82gWHdEhGQLDSkqh2aYA3BYuxtQhNq2Hk" > /var/www/your_domain/html/.well-known/acme-challenge/ZxnKb3TzZdJTMqNrZZAu5UjD73nvpL67WI1ceesShWY
+
+
+service nginx reload
+
+
+
+echo 
+
+server {
+    server_name heroes.soulrapha.org;
+
+    location / {
+        proxy_set_header  X-Forwarded-For    $proxy_add_x_forwarded_for;
+        proxy_pass http://localhost:3000/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto  $scheme;
+        proxy_set_header Accept-Encoding    "";
+        proxy_set_header Proxy              "";
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location /api/ {
+        rewrite ^/api/(.*) /$1 break;
+        proxy_pass http://localhost:3333/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header  X-Forwarded-For    $proxy_add_x_forwarded_for;
+        proxy_set_header  X-Forwarded-Proto  $scheme;
+        proxy_set_header  Accept-Encoding    "";
+        proxy_set_header  Proxy              "";
+        proxy_cache_bypass $http_upgrade;
+    }
+    
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/heroes.soulrapha.org/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/heroes.soulrapha.org/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+server {
+    if ($host = heroes.soulrapha.org) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    listen 80;
+    listen [::]:80;
+    server_name heroes.soulrapha.org;
+    return 404; # managed by Certbot
+} 
+
+> /etc/nginx/sites-available/heroes.soulrapha.org
+
+service nginx reload
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Requesting a certificate for iilglobal.com
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Create a file containing just this data:
+
+t-cANEE5trW25fm8dTALXPamjkSD17nVGLjz3sVth6g.S5JLzuWifw82gWHdEhGQLDSkqh2aYA3BYuxtQhNq2Hk
+
+And make it available on your web server at this URL:
+
+http://iilglobal.com/.well-known/acme-challenge/t-cANEE5trW25fm8dTALXPamjkSD17nVGLjz3sVth6g
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Press Enter to Continue
+
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/iilglobal.com/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/iilglobal.com/privkey.pem
+This certificate expires on 2023-11-18.
+These files will be updated when the certificate renews.
+
+NEXT STEPS:
+- This certificate will not be renewed automatically. Autorenewal of --manual certificates requires the use of an authentication hook script (--manual-auth-hook) but one was not provided. To renew this certificate, repeat this same certbot command before the certificate's expiry date.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    root /var/www/your_domain/html;
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name heroes.soulrapha.org;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}

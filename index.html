@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.3/dist/hls.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <video
+      id="main-video"
+      style="width: 600px"
+      preload="auto"
+      crossorigin
+      controls>
+      <source
+        src="https://vz-8d5707b2-5d8.b-cdn.net/e51cb4fb-4ede-443d-ba8b-0d7d912c3416/playlist.m3u8" />
+    </video>
+    <script type="module">
+      const video = document.getElementById('main-video');
+      const isFairplay = true;
+      const isEntDrm = true;
+      window.keysPromise = null;
+      const urlPlaylistUrl =
+        'https://vz-8d5707b2-5d8.b-cdn.net/e51cb4fb-4ede-443d-ba8b-0d7d912c3416/playlist.m3u8';
+      const isHlsSupported = !isFairplay && Hls.isSupported();
+      const fairPlayLicenceUrl =
+        'https://video-core-api.bunnycdn.com/FairPlayLicense/125892/e51cb4fb-4ede-443d-ba8b-0d7d912c3416';
+      let fairPlayCertificate = null;
+
+      function base64ToArrayBuffer(base64) {
+        const binary_string = window.atob(base64);
+        console.log('atob', binary_string);
+        const len = binary_string.length;
+        const bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+          bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes.buffer;
+      }
+
+      async function loadFpCertificate() {
+        try {
+          var response = await fetch(fairPlayLicenceUrl);
+          var certResult = await response.json();
+          fairPlayCertificate = base64ToArrayBuffer(certResult.certificate);
+          console.log(
+            'FairPlay certificate loaded',
+            fairPlayCertificate,
+            certResult
+          );
+        } catch (e) {
+          window.console.error(
+            `Could not load FairPlay certificate at ${serverCertificatePath}`
+          );
+        }
+      }
+
+      async function createMediaKeys(video) {
+        if (keysPromise) await keysPromise;
+        if (!video.mediaKeys) {
+          var resolve = null;
+          keysPromise = new Promise(r => (resolve = r));
+          var accessPromise = navigator.requestMediaKeySystemAccess(
+            'com.apple.fps',
+            [
+              {
+                initDataTypes: ['cenc', 'sinf', 'skd'],
+                videoCapabilities: [
+                  {
+                    contentType: 'application/vnd.apple.mpegurl',
+                    robustness: '',
+                  },
+                ],
+                distinctiveIdentifier: 'not-allowed',
+                persistentState: 'not-allowed',
+                sessionTypes: ['temporary'],
+              },
+            ]
+          );
+          var access = await accessPromise;
+          var keys = await access.createMediaKeys();
+          var success = await keys.setServerCertificate(fairPlayCertificate);
+          var keysResult = await video.setMediaKeys(keys);
+          resolve();
+        }
+      }
+
+      async function onFpEncrypted(event) {
+        try {
+          const initDataType = event.initDataType;
+          console.log('initDataType', initDataType);
+
+          const video = event.target;
+          await createMediaKeys(video);
+
+          const initData = event.initData;
+
+          const session = video.mediaKeys.createSession();
+          await session.generateRequest(initDataType, initData);
+
+          const message = await new Promise(resolve => {
+            session.addEventListener(
+              'message',
+              e => {
+                resolve(e);
+              },
+              {
+                once: true,
+              }
+            );
+          });
+
+          // licence_url we set earlier is used here.
+          const response = await getResponse(message, fairPlayLicenceUrl);
+
+          await session
+            .update(response)
+            .catch(console.error.bind(console, 'FP license update failed;'));
+
+          return session;
+        } catch (e) {
+          console.log(e);
+          window.console.error(
+            `Could not start FP encrypted playback due to exception "${e}"`
+          );
+        }
+      }
+
+      async function getResponse(event, license_server_url) {
+        const spc_string = btoa(
+          String.fromCharCode.apply(null, new Uint8Array(event.message))
+        );
+        // console.log('spc string', spc_string);
+        console.log('event mess', event.message);
+
+        const licenseResponse = await fetch(license_server_url, {
+          method: 'POST',
+          headers: new Headers({
+            'Content-type': 'application/json',
+          }),
+          body: JSON.stringify({
+            spc: spc_string,
+          }),
+        });
+        const responseObject = await licenseResponse.json();
+        console.log('responseObject', responseObject);
+        return base64ToArrayBuffer(responseObject.ckc);
+      }
+
+      async function initFairPlay(videoEl) {
+        await loadFpCertificate();
+        videoEl.addEventListener('encrypted', onFpEncrypted);
+      }
+
+      await initFairPlay(video);
+
+      if (isHlsSupported) {
+        const hls = new Hls({
+          debug: false,
+          drmSystems: {
+            // 'com.apple.fps': {
+            //   licenseUrl:
+            //     'https://video-core-api.bunnycdn.com/FairPlayLicense/125892/e51cb4fb-4ede-443d-ba8b-0d7d912c3416',
+            //   serverCertificateUrl: 'https://letcheck.b-cdn.net/fairplay.cer',
+            // },
+            'com.widevine.alpha': {
+              licenseUrl:
+                'https://video-core-api.bunnycdn.com/WidevineLicense/125892/e51cb4fb-4ede-443d-ba8b-0d7d912c3416?contentId=e51cb4fb-4ede-443d-ba8b-0d7d912c3416',
+            },
+          },
+
+          emeEnabled: true,
+        });
+        hls.loadSource(urlPlaylistUrl);
+        hls.attachMedia(video);
+      }
+    </script>
+  </body>
+</html>

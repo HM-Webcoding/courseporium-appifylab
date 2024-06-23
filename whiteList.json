@@ -1,0 +1,47 @@
+{
+  "DEVELOPER": ["/dashboard/pages", "/dashboard/site-menu"],
+  "AFFILIATE_USER": [
+    "/dashboard/affiliate-dashboard",
+    "/dashboard/affiliate-dashboard/affileate-level"
+  ],
+  "TEACHER": [
+    "/dashboard",
+    "/dashboard/orders",
+    "/dashboard/mycourses",
+    "/dashboard/category",
+    "/dashboard/communities",
+    "/dashboard/groups",
+    "/dashboard/private-chat-settings",
+    "/dashboard/appointments",
+    "/dashboard/product",
+    "/dashboard/product-category",
+    "/dashboard/coupons",
+    "/dashboard/certificates",
+    "/dashboard/blogs",
+    "/dashboard/blogs/categories",
+    "/dashboard/email-subscribers",
+    "/dashboard/quiz_survey",
+    "/dashboard/assignment",
+    "/dashboard/reviews"
+  ],
+  "REVENUE_PARTNER": [
+    "/dashboard",
+    "/dashboard/orders",
+    "/dashboard/mycourses",
+    "/dashboard/category",
+    "/dashboard/communities",
+    "/dashboard/groups",
+    "/dashboard/private-chat-settings",
+    "/dashboard/appointments",
+    "/dashboard/product",
+    "/dashboard/product-category",
+    "/dashboard/coupons",
+    "/dashboard/certificates",
+    "/dashboard/blogs",
+    "/dashboard/blogs/categories",
+    "/dashboard/email-subscribers",
+    "/dashboard/quiz_survey",
+    "/dashboard/assignment",
+    "/dashboard/reviews"
+  ]
+}

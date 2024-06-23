@@ -1,0 +1,175 @@
+@tailwind components;
+@tailwind utilities;
+/* @tailwind base; */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(59, 130, 246, 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+}
+
+:root {
+  /* Primary  */
+  --ezyPrimary: #6662ff;
+  --ezyPrimaryHover: #3a34df;
+  --ezyPrimaryfg: #ffffff;
+  --ezyPrimaryRGB: 102 98 255;
+  --ezyPrimary950: #141433;
+  --ezyPrimary900: #292766;
+  --ezyPrimary800: #3d3b99;
+  --ezyPrimary700: #524ecc;
+  --ezyPrimary600: #5c58e5;
+  --ezyPrimary500: #6662ff;
+  --ezyPrimary400: #8885ff;
+  --ezyPrimary300: #aaa8ff;
+  --ezyPrimary200: #c4c2ff;
+  --ezyPrimary100: #dddcff;
+  --ezyPrimary50: #eeeeff;
+  --ezyPrimary25: #f5f5ff;
+  /* End Primary  */
+  /* Gray  */
+  --ezyGray950: #0c111d;
+  --ezyGray900: #101828;
+  --ezyGray800: #182230;
+  --ezyGray750: #232a37;
+  --ezyGray700: #344054;
+  --ezyGray600: #475467;
+  --ezyGray500: #667085;
+  --ezyGray400: #98a2b3;
+  --ezyGray300: #d0d5dd;
+  --ezyGray250: #e1e4ea;
+  --ezyGray200: #eaecf0;
+  --ezyGray100: #f2f4f7;
+  --ezyGray50: #f9fafb;
+  --ezyGray25: #fcfcfd;
+  /* End Gray  */
+  --white: #ffffff;
+  --black: var(--ezyGray900);
+  --blackHSL: 220 43% 11%;
+  --bg: var(--white);
+  --fg: var(--black);
+  --scrollbar-thumb-color: rgb(152 162 179 / 0.5);
+  --course-watch-topbar-height: 3.5rem;
+  --course-watch-sidebar-width: 23.75rem;
+}
+
+/* ======= Global and custom Scrollbar Styles ======= */
+
+::-webkit-scrollbar {
+  @apply h-[0.5rem] w-[0.5rem];
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply !bg-[var(--scrollbar-thumb-color)];
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  @apply bg-transparent;
+}
+
+.scrollbar_sm::-webkit-scrollbar {
+  @apply h-[0.25rem] w-[0.25rem];
+}
+
+.scrollbar_md::-webkit-scrollbar {
+  @apply h-1.5 w-1.5;
+}
+
+.show_scrollbar_onHover::-webkit-scrollbar-track {
+  @apply !bg-transparent;
+}
+
+.show_scrollbar_onHover::-webkit-scrollbar-thumb {
+  @apply !bg-transparent;
+}
+
+.show_scrollbar_onHover:hover::-webkit-scrollbar-thumb {
+  @apply !bg-[var(--scrollbar-thumb-color)];
+}
+
+/* ======= End Scrollbar Style ======= */
+
+@layer components {
+  .text-truncate {
+    @apply truncate whitespace-normal;
+  }
+
+  .btn_primary {
+    @apply inline-flex h-auto items-center justify-center rounded-lg border border-ezy-primary bg-ezy-primary !py-[9px] px-[18px] text-center text-base font-medium text-ezy-primary-fg transition hover:border-ezy-primary-hover hover:bg-ezy-primary-hover hover:text-white focus:border-ezy-primary focus:bg-ezy-primary-hover focus:text-ezy-primary-fg active:border-ezy-primary active:bg-ezy-primary-hover active:text-ezy-primary-fg;
+  }
+
+  .btn_primary_outline {
+    @apply inline-flex h-auto items-center justify-center rounded-lg border-ezy-primary bg-white !py-[9px] px-[18px] text-center text-base font-medium text-ezy-primary transition hover:border-ezy-primary hover:bg-ezy-primary-25 hover:text-ezy-primary focus:border-ezy-primary focus:bg-ezy-primary-25 focus:text-ezy-primary active:border-ezy-primary active:bg-ezy-primary-25 active:text-ezy-primary;
+  }
+
+  .btn_danger {
+    @apply inline-flex h-auto items-center justify-center rounded-lg border border-transparent bg-red-600 !py-[9px] px-[18px] text-center text-base font-medium text-white transition hover:border-red-700 hover:bg-red-700 hover:text-white focus:border-red-700 focus:bg-red-700 focus:text-white active:border-red-700 active:bg-red-700 active:text-white;
+  }
+}
+
+.-transform-x-50\% {
+  transform: translateX(-50%);
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+  transition: 0.3s all ease;
+}
+
+/* ======= End tailwind css ======= */
+
+@import url('./marketplaceuser.css');
+@import url('./common.css');

@@ -1,0 +1,121 @@
+:root {
+  --marketPlaceUserBgGradient: linear-gradient(
+    180deg,
+    #4a1dc7 0%,
+    #3c40c3 100%
+  );
+}
+
+/* customize instrunctor tab bar */
+.marketplace_user_ant_design
+  .ant-tabs-tab.ant-tabs-tab-active
+  .ant-tabs-tab-btn
+  p {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+.marketplace_user_ant_design .ant-tabs .ant-tabs-tab {
+  color: #4d4d4d;
+}
+.marketplace_user_ant_design .ant-tabs-top > .ant-tabs-nav .ant-tabs-ink-bar,
+.ant-tabs-top > .ant-tabs-nav:before,
+.ant-tabs-top > div > .ant-tabs-nav .ant-tabs-ink-bar,
+.ant-tabs-top > div > .ant-tabs-nav:before {
+  background: var(--ezyPrimary);
+  display: block;
+}
+.marketplace_user_ant_design .ant-tabs-tab {
+  padding: 24px 0;
+}
+.marketplace_user_ant_design .ant-tabs-nav {
+  border-bottom: 1px solid #cccccc;
+}
+.marketplace_user_ant_design .ant-tabs-nav-more .anticon svg {
+  display: inline-block;
+  font-size: 24px;
+}
+.marketplace_user_ant_design .ant-tabs-nav-more {
+  padding: 8px 10px;
+}
+
+/* responsive tab button */
+.marketplace_user_ant_design .ant-tabs > .ant-tabs-nav .ant-tabs-nav-operations,
+.ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-operations {
+  background: white;
+  border-radius: 8px;
+  align-items: center;
+  margin: 0 10px;
+  height: 35px;
+  transform: translateY(63%);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/* in responsive tab items shadwo remove */
+.marketplace_user_ant_design
+  .ant-tabs-top
+  > .ant-tabs-nav
+  .ant-tabs-nav-wrap.ant-tabs-nav-wrap-ping-left::before {
+  opacity: 0;
+}
+.marketplace_user_ant_design
+  .ant-tabs-top
+  > .ant-tabs-nav
+  .ant-tabs-nav-wrap.ant-tabs-nav-wrap-ping-right::after {
+  opacity: 0;
+}
+
+/* tab content wrapper */
+.marketplace_user_ant_design .ant-tabs-content.ant-tabs-content-top {
+  padding-top: 16px;
+}
+
+/* ant design pagination css customization */
+.marketplace_user_ant_design .ant-pagination-item-active {
+  background-color: #5551ff !important;
+  border: none;
+  border-radius: 50%;
+  border: none;
+}
+.marketplace_user_ant_design .ant-pagination-item-active a,
+.ant-pagination-item-active:hover a {
+  color: #ffff;
+  border-radius: 50%;
+}
+.marketplace_user_ant_design .ant-pagination-item {
+  border-radius: 50%;
+  border: none;
+}
+.marketplace_user_ant_design .ant-pagination-item-link {
+  line-height: 30px;
+  border-radius: 2px;
+}
+
+/* customize pagination number  */
+.marketplace_user_ant_design .ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  border: none;
+  font-size: 18px !important;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+}
+.marketplace_user_ant_design .ant-pagination-options {
+  display: none;
+}
+.marketplace_user_ant_design .ant-pagination-item {
+  background-color: transparent;
+}
+.marketplace_user_ant_design .anticon svg {
+  font-size: 18px;
+}
+.marketplace_user_ant_design
+  .ant-pagination-prev:hover
+  .ant-pagination-item-link,
+.ant-pagination-next:hover .ant-pagination-item-link {
+  color: var(--ezyPrimary);
+}
+
+/* rating */
+.marketplace_user_ant_design .ant-rate-star:not(:last-child) {
+  margin-right: 2px;
+}
