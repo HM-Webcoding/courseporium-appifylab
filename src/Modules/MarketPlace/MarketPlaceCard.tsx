@@ -93,7 +93,6 @@ const MarketPlaceCard = ({
             </div>
           </div>
 
-          {/* divider */}
           <Divider className="my-4" />
 
           {/* pricing and review style 1 */}

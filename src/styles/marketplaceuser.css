@@ -11,43 +11,36 @@
   .ant-tabs-tab.ant-tabs-tab-active
   .ant-tabs-tab-btn
   p {
-  font-weight: 600;
-  color: #1a1a1a;
+  @apply font-semibold text-[#1a1a1a];
 }
 .marketplace_user_ant_design .ant-tabs .ant-tabs-tab {
-  color: #4d4d4d;
+  @apply text-[#4d4d4d];
 }
 .marketplace_user_ant_design .ant-tabs-top > .ant-tabs-nav .ant-tabs-ink-bar,
 .ant-tabs-top > .ant-tabs-nav:before,
 .ant-tabs-top > div > .ant-tabs-nav .ant-tabs-ink-bar,
 .ant-tabs-top > div > .ant-tabs-nav:before {
-  background: var(--ezyPrimary);
-  display: block;
+  @apply block bg-ezy-primary;
 }
 .marketplace_user_ant_design .ant-tabs-tab {
   padding: 24px 0;
+  @apply px-0 py-6;
 }
 .marketplace_user_ant_design .ant-tabs-nav {
-  border-bottom: 1px solid #cccccc;
+  @apply border-b border-solid border-b-[#cccccc];
 }
 .marketplace_user_ant_design .ant-tabs-nav-more .anticon svg {
-  display: inline-block;
-  font-size: 24px;
+  @apply inline-block text-2xl;
 }
 .marketplace_user_ant_design .ant-tabs-nav-more {
-  padding: 8px 10px;
+  @apply px-2.5 py-2;
 }
 
 /* responsive tab button */
 .marketplace_user_ant_design .ant-tabs > .ant-tabs-nav .ant-tabs-nav-operations,
 .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-operations {
-  background: white;
-  border-radius: 8px;
-  align-items: center;
-  margin: 0 10px;
-  height: 35px;
-  transform: translateY(63%);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  @apply mx-2.5 my-0 h-9 translate-y-[63%] items-center rounded-lg bg-white;
 }
 
 /* in responsive tab items shadwo remove */
@@ -55,67 +48,57 @@
   .ant-tabs-top
   > .ant-tabs-nav
   .ant-tabs-nav-wrap.ant-tabs-nav-wrap-ping-left::before {
-  opacity: 0;
+  @apply opacity-0;
 }
 .marketplace_user_ant_design
   .ant-tabs-top
   > .ant-tabs-nav
   .ant-tabs-nav-wrap.ant-tabs-nav-wrap-ping-right::after {
-  opacity: 0;
+  @apply opacity-0;
 }
 
 /* tab content wrapper */
 .marketplace_user_ant_design .ant-tabs-content.ant-tabs-content-top {
-  padding-top: 16px;
+  @apply pt-4;
 }
 
 /* ant design pagination css customization */
 .marketplace_user_ant_design .ant-pagination-item-active {
-  background-color: #5551ff !important;
-  border: none;
-  border-radius: 50%;
-  border: none;
+  @apply rounded-full border-none;
 }
 .marketplace_user_ant_design .ant-pagination-item-active a,
 .ant-pagination-item-active:hover a {
-  color: #ffff;
-  border-radius: 50%;
+  @apply rounded-full text-white;
 }
 .marketplace_user_ant_design .ant-pagination-item {
-  border-radius: 50%;
-  border: none;
+  @apply rounded-full border-none;
 }
 .marketplace_user_ant_design .ant-pagination-item-link {
-  line-height: 30px;
-  border-radius: 2px;
+  @apply rounded-sm leading-[30px];
 }
 
 /* customize pagination number  */
 .marketplace_user_ant_design .ant-pagination-prev .ant-pagination-item-link,
 .ant-pagination-next .ant-pagination-item-link {
-  border: none;
-  font-size: 18px !important;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
+  @apply flex items-center border-none bg-transparent text-lg;
 }
 .marketplace_user_ant_design .ant-pagination-options {
   display: none;
 }
 .marketplace_user_ant_design .ant-pagination-item {
-  background-color: transparent;
+  @apply bg-transparent;
 }
 .marketplace_user_ant_design .anticon svg {
-  font-size: 18px;
+  @apply text-lg;
 }
 .marketplace_user_ant_design
   .ant-pagination-prev:hover
   .ant-pagination-item-link,
 .ant-pagination-next:hover .ant-pagination-item-link {
-  color: var(--ezyPrimary);
+  @apply text-ezy-primary;
 }
 
 /* rating */
 .marketplace_user_ant_design .ant-rate-star:not(:last-child) {
-  margin-right: 2px;
+  @apply mr-[2px];
 }
