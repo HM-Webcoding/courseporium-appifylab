@@ -13,9 +13,10 @@ import {
   IconTopicPrivateChat,
 } from '@/components/icons/marketplaceIcons';
 import {ReactNode, useRef, useState} from 'react';
-import {Carousel} from 'antd';
+import {Carousel, Pagination} from 'antd';
 
 import {FilterSidebar} from '@/Modules/MarketPlace/FilterSidebar';
+import {MainContent} from '@/Modules/MarketPlace/MainContent';
 
 const Marketplace = () => {
   const sliderRef = useRef(null);
@@ -182,9 +183,13 @@ const Marketplace = () => {
                 <FilterSidebar />
               </div>
               {/* main content */}
-              <div className="w-full">
-                <h5>Main Content Area</h5>
+              <div>
+                <MainContent />
               </div>
+            </div>
+            {/* Pagination section start */}
+            <div className="marketplace-ant-pagination pt- flex justify-center pt-12 sm:pt-20 ">
+              <Pagination defaultCurrent={1} total={100} />
             </div>
           </div>
         </section>
