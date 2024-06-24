@@ -1,0 +1,18 @@
+/* Filter sidebar ant collapse styles START */
+.marketplaceSidebar_collapse .ant-collapse {
+  @apply border-none bg-white;
+}
+.marketplaceSidebar_collapse
+  .ant-collapse-icon-position-end
+  > .ant-collapse-item
+  > .ant-collapse-header {
+  @apply px-0 pb-3 text-xl;
+}
+.marketplaceSidebar_collapse .ant-collapse-content > .ant-collapse-content-box {
+  @apply px-0 py-4;
+}
+.marketplaceSidebar_collapse .ant-collapse > .ant-collapse-item {
+  @apply border-b-0;
+}
+
+/* Filter sidebar ant collapse styles END */

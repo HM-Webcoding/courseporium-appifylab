@@ -14,9 +14,10 @@ import {
 } from '@/components/icons/marketplaceIcons';
 import {IconArrowDown, IconArrowUp} from '@/components/icons';
 import {HtmlHTMLAttributes, ReactNode, useRef, useState} from 'react';
-import {Carousel, Checkbox} from 'antd';
+import {Carousel, Checkbox, Collapse} from 'antd';
 import {CheckboxValueType} from 'antd/lib/checkbox/Group';
 import {cn} from '@/utils/cn';
+import {FilterSidebar} from '@/Modules/MarketPlace/FilterSidebar';
 
 const Marketplace = () => {
   const sliderRef = useRef(null);
@@ -212,118 +213,4 @@ const TopicItem = ({icon, topic}: TopicItemProps) => {
       <h5 className="text-center text-lg font-medium text-black">{topic}</h5>
     </div>
   );
-};
-
-const FilterSidebar = () => {
-  const [isActive, setIsActive] = useState(false);
-
-  const onChange = (checkedValues: CheckboxValueType[]) => {
-    console.log('checked = ', checkedValues);
-  };
-
-  return (
-    <>
-      <div>
-        <h5 className="mb-4 text-3xl font-medium text-black">Filters</h5>
-        {/* accordion content */}
-        <div className="w-full space-y-8">
-          {/* accordion item 1 - Category */}
-          <div>
-            {/* accordion button */}
-            <button
-              onClick={() => setIsActive(!isActive)}
-              className="flex w-full cursor-pointer items-center justify-between gap-x-2 bg-transparent">
-              <h6 className="text-xl font-medium text-black">Category</h6>
-              {isActive ? <IconArrowUp /> : <IconArrowDown />}
-            </button>
-            {isActive && <hr className="my-4 h-[1px] w-full bg-ezy-gray-300" />}
-            {/* content panel */}
-            {isActive && (
-              <div>
-                <Checkbox.Group onChange={onChange}>
-                  <div className="flex flex-col items-start gap-y-4">
-                    <Checkbox
-                      value="web-development"
-                      defaultChecked={true}
-                      className="!ml-0">
-                      <p className="text-base font-normal text-black">
-                        Web Development (102)
-                      </p>
-                    </Checkbox>
-                    <Checkbox value="design" className="!ml-0">
-                      <p className="text-base font-normal text-black">
-                        Design (80)
-                      </p>
-                    </Checkbox>
-                    <Checkbox value="marketing" className="!ml-0">
-                      <p className="text-base font-normal text-black">
-                        Marketing (40)
-                      </p>
-                    </Checkbox>
-                    <Checkbox value="video-editing" className="!ml-0">
-                      <p className="text-base font-normal text-black">
-                        Video Editing (20)
-                      </p>
-                    </Checkbox>
-                  </div>
-                </Checkbox.Group>
-                <button className="my-3 bg-white text-center text-lg font-medium text-ezy-primary transition-all duration-300 ease-in-out hover:opacity-80">
-                  View more
-                </button>
-              </div>
-            )}
-          </div>
-
-          {/* accordion item 2 - Level */}
-          <div>
-            {/* accordion button */}
-            <button
-              onClick={() => setIsActive(!isActive)}
-              className="flex w-full cursor-pointer items-center justify-between gap-x-2 bg-transparent">
-              <h6 className="text-xl font-medium text-black">Level</h6>
-              {isActive ? <IconArrowUp /> : <IconArrowDown />}
-            </button>
-            {isActive && <hr className="my-4 h-[1px] w-full bg-ezy-gray-300" />}
-            {/* content panel */}
-            {isActive && (
-              <div>
-                <Checkbox.Group onChange={onChange}>
-                  <div className="flex flex-col items-start gap-y-4">
-                    <Checkbox
-                      value="web-development"
-                      defaultChecked={true}
-                      className="!ml-0">
-                      <p className="text-base font-normal text-black">
-                        All Levels (1234)
-                      </p>
-                    </Checkbox>
-                    <Checkbox value="design" className="!ml-0">
-                      <p className="text-base font-normal text-black">
-                        Beginner (124)
-                      </p>
-                    </Checkbox>
-                    <Checkbox value="marketing" className="!ml-0">
-                      <p className="text-base font-normal text-black">
-                        Intermediate (542)
-                      </p>
-                    </Checkbox>
-                    <Checkbox value="video-editing" className="!ml-0">
-                      <p className="text-base font-normal text-black">Expert</p>
-                    </Checkbox>
-                  </div>
-                </Checkbox.Group>
-                <button className="my-3 bg-white text-center text-lg font-medium text-ezy-primary transition-all duration-300 ease-in-out hover:opacity-80">
-                  View more
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const EzyAccordion = () => {
-  return <></>;
 };
