@@ -1,3 +1,4 @@
+import {FilterSidebar} from '@/Modules/MarketPlace/FilterSidebar';
 import {CourseCardData} from '@/Modules/MarketPlace/Instructor/CourseData';
 import MarketPlaceCard from '@/Modules/MarketPlace/MarketPlaceCard';
 import {
@@ -5,7 +6,7 @@ import {
   IconListView,
   IconSearch,
 } from '@/components/icons/marketplaceIcons';
-import {Input, TreeSelect} from 'antd';
+import {Input, Pagination, TreeSelect} from 'antd';
 import React from 'react';
 import {useState} from 'react';
 
@@ -47,7 +48,7 @@ const communityList = () => {
           <div className="flex flex-col items-start gap-y-12 md:flex-row md:gap-x-10">
             {/* marketplace filter sidebar */}
             <div className="h-full w-full rounded-2xl bg-white p-6 sm:min-w-[258px] sm:max-w-[242px]">
-              sidebar
+              <FilterSidebar />
             </div>
             {/* main content */}
             <div className="w-full ">
