@@ -40,19 +40,16 @@ const MarketPlaceCard = ({
         <div>
           {/* icons style 1 start */}
           <div className="flex items-center gap-4 lg:gap-2 xl:gap-4">
-            {/* icon 1 */}
             <div className="flex items-center gap-2">
               <IconNetworkSignal />
               <p className="text-base font-normal">{courseLabel}</p>
             </div>
 
-            {/* icon 2 */}
             <div className="flex items-center gap-2">
               <IconVideo />
               <p className="text-base font-normal">Videos</p>
             </div>
 
-            {/* icon 3 */}
             <div className="flex items-center gap-2">
               <IconClock style={{color: 'gray'}} />
               <p className="text-base font-normal">{videoDuration}hours</p>
@@ -61,13 +58,11 @@ const MarketPlaceCard = ({
 
           {/* icons style 2 start  */}
           <div className="flex items-center gap-4">
-            {/* icon 1 */}
             <div className="flex items-center gap-2">
               <IconUserOutline />
               <p className="text-[14px] font-normal">Members</p>
             </div>
 
-            {/* icon 2 */}
             <div className="flex items-center gap-2">
               <IconLikePostCard />
               <p className="text-[12px] font-normal">Posts</p>
@@ -76,13 +71,11 @@ const MarketPlaceCard = ({
 
           {/* icons style 3 start  */}
           <div className="flex items-center justify-between">
-            {/* icon 1 */}
             <div className="flex items-center gap-2">
               <IconlocationOutline />
               <p className="text-[14px] font-normal">Sylhet</p>
             </div>
 
-            {/* icon 2 */}
             <div className="flex items-center gap-2">
               <img
                 src="https://letcheck.b-cdn.net/129/clxa36sua0900uz9neqfngvnh.png"

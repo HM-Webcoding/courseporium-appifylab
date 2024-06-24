@@ -16,7 +16,7 @@
 .community-list-ant-design
   .ant-select-single:not(.ant-select-customize-input)
   .ant-select-selector {
-  @apply px-[18px];
+  @apply px-2.5 sm:px-[18px];
 }
 .community-list-ant-design
   .ant-select-single.ant-select-show-arrow
@@ -24,9 +24,7 @@
 .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
   padding-right: 34px;
 }
-.community-list-ant-design .ant-select-tree-switcher {
-  @apply w-0;
-}
+
 .community-list-ant-design .ant-input-focused,
 .ant-input:focus {
   @apply border-[#E6E9ED];
@@ -34,4 +32,16 @@
 
 .community-list-ant-design .ant-input {
   @apply rounded-md border-[#E6E9ED] py-2.5 pl-[18px] pr-10;
+}
+
+.ant-select-tree-switcher {
+  width: 0px !important;
+}
+.community-list-ant-design
+  .ant-select-focused:not(.ant-select-disabled).ant-select:not(
+    .ant-select-customize-input
+  )
+  .ant-select-selector {
+  border-color: #7b68ee;
+  box-shadow: 0 0 0 2px rgb(123 104 238);
 }
