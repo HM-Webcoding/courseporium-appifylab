@@ -12,11 +12,9 @@ import {
   IconTopicPhysicalProducts,
   IconTopicPrivateChat,
 } from '@/components/icons/marketplaceIcons';
-import {IconArrowDown, IconArrowUp} from '@/components/icons';
-import {HtmlHTMLAttributes, ReactNode, useRef, useState} from 'react';
-import {Carousel, Checkbox, Collapse} from 'antd';
-import {CheckboxValueType} from 'antd/lib/checkbox/Group';
-import {cn} from '@/utils/cn';
+import {ReactNode, useRef, useState} from 'react';
+import {Carousel} from 'antd';
+
 import {FilterSidebar} from '@/Modules/MarketPlace/FilterSidebar';
 
 const Marketplace = () => {
@@ -164,7 +162,7 @@ const Marketplace = () => {
               {/* next arrow buttons */}
               <button
                 style={
-                  currentSlide === 7 ? {display: 'none'} : {display: 'flex'}
+                  currentSlide === 6 ? {display: 'none'} : {display: 'flex'}
                 }
                 className="absolute -right-1 top-1/2 flex -translate-y-1/2 items-center rounded-full border border-solid border-ezy-gray-200 bg-white p-3 transition-all duration-300 ease-in-out hover:border-ezy-primary hover:bg-ezy-primary-200"
                 onClick={() => sliderRef?.current?.next()}>
