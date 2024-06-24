@@ -1,5 +1,5 @@
-import InstructorProfile from '@/Modules/MarketPlace/InstructorProfile';
-import InstructorTab from '@/Modules/MarketPlace/InstructorTab/InstructorTab';
+import InstructorProfile from '@/Modules/MarketPlace/Instructor/InstructorProfile';
+import InstructorTab from '@/Modules/MarketPlace/Instructor/InstructorTab/InstructorTab';
 import {
   IconFacebook,
   IconIndeed,

@@ -1,6 +1,7 @@
 import {useState} from 'react';
+
+import MarketPlaceCard from '../../MarketPlaceCard';
 import {CourseCardData} from '../CourseData';
-import MarketPlaceCard from '../MarketPlaceCard';
 
 const MarketPlacecourse = () => {
   const [data, setData] = useState(CourseCardData);
@@ -8,7 +9,7 @@ const MarketPlacecourse = () => {
   return (
     <>
       <div className="grid gap-5 lg:grid-cols-2 xl:gap-x-10 xl:gap-y-[30px]">
-        {data.map((item) => (
+        {data.map(item => (
           <MarketPlaceCard
             key={item.id}
             cardImgUrl={item.cardImgUrl}
