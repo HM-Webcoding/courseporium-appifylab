@@ -33,7 +33,7 @@ const treeData = [
   },
 ];
 
-const communityList = () => {
+const CommunityList = () => {
   const [data, setData] = useState(CourseCardData);
   const [value, setValue] = useState<string | undefined>(undefined);
   const onChange = (newValue: string) => {
@@ -112,4 +112,4 @@ const communityList = () => {
   );
 };
 
-export default communityList;
+export default CommunityList;
