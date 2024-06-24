@@ -1,5 +1,5 @@
+import {CardData} from '@/Modules/MarketPlace/CardData';
 import {FilterSidebar} from '@/Modules/MarketPlace/FilterSidebar';
-import {CourseCardData} from '@/Modules/MarketPlace/Instructor/CourseData';
 import MarketPlaceCard from '@/Modules/MarketPlace/MarketPlaceCard';
 import {
   IconGridView,
@@ -34,7 +34,7 @@ const treeData = [
 ];
 
 const CommunityList = () => {
-  const [data, setData] = useState(CourseCardData);
+  const [data, setData] = useState(CardData);
   const [value, setValue] = useState<string | undefined>(undefined);
   const onChange = (newValue: string) => {
     setValue(newValue);
@@ -103,6 +103,10 @@ const CommunityList = () => {
                 ))}
               </div>
             </div>
+          </div>
+          {/* Pagination section start */}
+          <div className="marketplace-ant-pagination pt- flex justify-center pt-12 sm:pt-20 ">
+            <Pagination defaultCurrent={1} total={100} />
           </div>
         </div>
       </section>

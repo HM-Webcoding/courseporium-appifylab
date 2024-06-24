@@ -1,4 +1,4 @@
-export const CourseCardData = [
+export const CardData = [
   {
     id: '1',
     cardImgUrl:

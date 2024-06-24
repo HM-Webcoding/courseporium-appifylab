@@ -1,10 +1,10 @@
 import {useState} from 'react';
 
 import MarketPlaceCard from '../../MarketPlaceCard';
-import {CourseCardData} from '../CourseData';
+import {CardData} from '../../CardData';
 
 const MarketPlacecourse = () => {
-  const [data, setData] = useState(CourseCardData);
+  const [data, setData] = useState(CardData);
 
   return (
     <>

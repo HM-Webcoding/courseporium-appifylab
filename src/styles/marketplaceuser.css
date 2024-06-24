@@ -62,42 +62,6 @@
   @apply pt-4;
 }
 
-/* ant design pagination css customization */
-.marketplace_user_ant_design .ant-pagination-item-active {
-  @apply rounded-full border-none;
-}
-.marketplace_user_ant_design .ant-pagination-item-active a,
-.ant-pagination-item-active:hover a {
-  @apply rounded-full text-white;
-}
-.marketplace_user_ant_design .ant-pagination-item {
-  @apply rounded-full border-none;
-}
-.marketplace_user_ant_design .ant-pagination-item-link {
-  @apply rounded-sm leading-[30px];
-}
-
-/* customize pagination number  */
-.marketplace_user_ant_design .ant-pagination-prev .ant-pagination-item-link,
-.ant-pagination-next .ant-pagination-item-link {
-  @apply flex items-center border-none bg-transparent text-lg;
-}
-.marketplace_user_ant_design .ant-pagination-options {
-  display: none;
-}
-.marketplace_user_ant_design .ant-pagination-item {
-  @apply bg-transparent;
-}
-.marketplace_user_ant_design .anticon svg {
-  @apply text-lg;
-}
-.marketplace_user_ant_design
-  .ant-pagination-prev:hover
-  .ant-pagination-item-link,
-.ant-pagination-next:hover .ant-pagination-item-link {
-  @apply text-ezy-primary;
-}
-
 /* rating */
 .marketplace_user_ant_design .ant-rate-star:not(:last-child) {
   @apply mr-[2px];

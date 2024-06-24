@@ -1,0 +1,35 @@
+/* ant design pagination css customization */
+.marketplace-ant-pagination .ant-pagination-item-active {
+  @apply rounded-full border-none;
+}
+.marketplace-ant-pagination .ant-pagination-item-active a,
+.ant-pagination-item-active:hover a {
+  @apply rounded-full text-white;
+}
+.marketplace-ant-pagination .ant-pagination-item {
+  @apply rounded-full border-none;
+}
+.marketplace-ant-pagination .ant-pagination-item-link {
+  @apply rounded-sm leading-[30px];
+}
+
+/* customize pagination number  */
+.marketplace-ant-pagination .ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  @apply flex items-center border-none bg-transparent text-lg;
+}
+.marketplace-ant-pagination .ant-pagination-options {
+  display: none;
+}
+.marketplace-ant-pagination .ant-pagination-item {
+  @apply bg-transparent;
+}
+.marketplace-ant-pagination .anticon svg {
+  @apply text-lg;
+}
+.marketplace-ant-pagination
+  .ant-pagination-prev:hover
+  .ant-pagination-item-link,
+.ant-pagination-next:hover .ant-pagination-item-link {
+  @apply text-ezy-primary;
+}

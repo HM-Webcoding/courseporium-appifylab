@@ -79,9 +79,9 @@ const MarketPlaceUser = () => {
               <InstructorTab />
             </div>
           </div>
-          {/* Pagination section start */}
 
-          <div className="flex justify-center pb-12 sm:pb-[120px]">
+          {/* Pagination section start */}
+          <div className="marketplace-ant-pagination flex justify-center pb-12 sm:pb-[120px]">
             <Pagination defaultCurrent={1} total={100} />
           </div>
         </div>
