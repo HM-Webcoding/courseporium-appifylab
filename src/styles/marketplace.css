@@ -14,5 +14,9 @@
 .marketplaceSidebar_collapse .ant-collapse > .ant-collapse-item {
   @apply border-b-0;
 }
+.marketplaceSidebar_collapse .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #5551ff;
+  border-color: #5551ff;
+}
 
 /* Filter sidebar ant collapse styles END */
