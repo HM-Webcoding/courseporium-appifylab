@@ -1,80 +1,10 @@
 import Head from 'next/head';
-import {
-  IconKeyboardArrowNext,
-  IconKeyboardArrowPrev,
-  IconTopicCoinPackage,
-  IconTopicCommunities,
-  IconTopicCourse,
-  IconTopicDigitalProducts,
-  IconTopicEvents,
-  IconTopicGroupChat,
-  IconTopicLiveProdducts,
-  IconTopicPhysicalProducts,
-  IconTopicPrivateChat,
-} from '@/components/icons/marketplaceIcons';
-import {ReactNode, useRef, useState} from 'react';
-import {Carousel} from 'antd';
-
+import {Pagination} from 'antd';
 import {FilterSidebar} from '@/Modules/MarketPlace/FilterSidebar';
+import {MainContent} from '@/Modules/MarketPlace/MainContent';
+import {TopicCarousel} from '@/Modules/MarketPlace/TopicCarousel';
 
 const Marketplace = () => {
-  const sliderRef = useRef(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const onChangeItem = (currentItem: number) => {
-    console.log(currentItem);
-    setCurrentSlide(currentItem);
-  };
-
-  const settings = {
-    className: 'flex',
-    dots: false,
-    arrows: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 6,
-    slidesToScroll: 6,
-    initialSlide: 0,
-    gap: 10,
-    responsive: [
-      {
-        breakpoint: 1400,
-        settings: {
-          slidesToShow: 6,
-          slidesToScroll: 6,
-        },
-      },
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 5,
-          slidesToScroll: 5,
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-    ],
-  };
-
   return (
     <>
       <Head>
@@ -106,69 +36,7 @@ const Marketplace = () => {
         <section className="py-12">
           <div className="container">
             {/* wrapper */}
-            <div className="relative">
-              <Carousel
-                {...settings}
-                ref={sliderRef}
-                afterChange={onChangeItem}>
-                <TopicItem icon={<IconTopicCourse />} topic="Courses" />
-                <TopicItem
-                  icon={<IconTopicCommunities className="text-[#FD71AF]" />}
-                  topic="Community"
-                />
-                <TopicItem
-                  icon={<IconTopicEvents className="text-[#00B884]" />}
-                  topic="Events"
-                />
-                <TopicItem
-                  icon={
-                    <IconTopicGroupChat className="fill-white text-[#FFC53D]" />
-                  }
-                  topic="Group Chat"
-                />
-                <TopicItem
-                  icon={<IconTopicDigitalProducts className="text-[#FF02F0]" />}
-                  topic="Digital Product"
-                />
-                <TopicItem
-                  icon={
-                    <IconTopicPhysicalProducts className="text-[#1F7CFF]" />
-                  }
-                  topic="Physical Product"
-                />
-                <TopicItem
-                  icon={<IconTopicLiveProdducts className="text-[#FF9900]" />}
-                  topic="Live Products"
-                />
-                <TopicItem
-                  icon={<IconTopicPrivateChat className="text-[#7B68EE]" />}
-                  topic="Private chat"
-                />
-                <TopicItem
-                  icon={<IconTopicCoinPackage className="text-[#7B68EE]" />}
-                  topic="Coin Packages"
-                />
-              </Carousel>
-
-              {/* prev arrow buttons */}
-              <button
-                style={
-                  currentSlide === 0 ? {display: 'none'} : {display: 'flex'}
-                }
-                className="absolute -left-1 top-1/2 flex -translate-y-1/2 items-center rounded-full border border-solid border-ezy-gray-200 bg-white p-3 transition-all duration-300 ease-in-out hover:border-ezy-primary hover:bg-ezy-primary-200"
-                onClick={() => sliderRef?.current?.prev()}>
-                <IconKeyboardArrowPrev className="text-xs text-black" />
-              </button>
-              {/* next arrow buttons */}
-              <button
-                style={
-                  currentSlide === 6 ? {display: 'none'} : {display: 'flex'}
-                }
-                className="absolute -right-1 top-1/2 flex -translate-y-1/2 items-center rounded-full border border-solid border-ezy-gray-200 bg-white p-3 transition-all duration-300 ease-in-out hover:border-ezy-primary hover:bg-ezy-primary-200"
-                onClick={() => sliderRef?.current?.next()}>
-                <IconKeyboardArrowNext className="text-xs text-black" />
-              </button>
-            </div>
+            <TopicCarousel />
           </div>
         </section>
         {/* TOPICS END */}
@@ -182,9 +50,13 @@ const Marketplace = () => {
                 <FilterSidebar />
               </div>
               {/* main content */}
-              <div className="w-full">
-                <h5>Main Content Area</h5>
+              <div>
+                <MainContent />
               </div>
+            </div>
+            {/* Pagination section start */}
+            <div className="marketplace-ant-pagination pt- flex justify-center pt-12 sm:pt-20 ">
+              <Pagination defaultCurrent={1} total={100} />
             </div>
           </div>
         </section>
@@ -198,17 +70,3 @@ const Marketplace = () => {
 };
 
 export default Marketplace;
-
-interface TopicItemProps {
-  icon: ReactNode;
-  topic: string;
-}
-
-const TopicItem = ({icon, topic}: TopicItemProps) => {
-  return (
-    <div className="mx-3 flex min-h-[118px] min-w-[130px] max-w-full flex-col items-center justify-center gap-y-2 self-stretch rounded-lg border border-solid border-transparent bg-white p-4 transition-all duration-300 ease-in-out hover:cursor-pointer hover:border-ezy-primary">
-      <span className="flex items-center text-xl font-bold">{icon}</span>
-      <h5 className="text-center text-lg font-medium text-black">{topic}</h5>
-    </div>
-  );
-};
