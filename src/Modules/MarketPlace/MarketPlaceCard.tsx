@@ -109,9 +109,10 @@ const MarketPlaceCard = ({
           <div className="flex items-center justify-between">
             <div className="text-lg font-medium">${afterDiscountPrice}</div>
             <div className="flex items-center justify-center gap-[2px]">
-              <button className="rounded-md bg-ezy-primary px-2.5 py-1.5 text-[14px] font-normal text-white">
+              {/* <button className="hover:bg-hover rounded-md bg-ezy-primary px-2.5 py-1.5 text-[14px] font-normal text-white">
                 Join Community
-              </button>
+              </button> */}
+              <button className="btn_primary text-sm">Join Community</button>
             </div>
           </div>
         </div>

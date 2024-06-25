@@ -27,7 +27,7 @@
 
 .community-list-ant-design .ant-input-focused,
 .ant-input:focus {
-  @apply border-[#E6E9ED];
+  @apply !border-ezy-primary-200;
 }
 
 .community-list-ant-design .ant-input {

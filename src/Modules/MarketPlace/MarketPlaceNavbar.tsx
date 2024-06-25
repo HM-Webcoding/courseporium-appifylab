@@ -68,8 +68,12 @@ const MarketPlaceNavbar = ({showDrawer}) => {
         <div className="flex items-center gap-3">
           <span className="text-base font-medium text-black">View:</span>
           <div className="flex items-center gap-2 ">
-            <IconGridView style={{cursor: 'pointer', color: '#7B68EE'}} />
-            <IconListView style={{cursor: 'pointer', color: '#666666'}} />
+            <button className="h-8 bg-transparent">
+              <IconGridView style={{cursor: 'pointer', color: '#7B68EE'}} />
+            </button>
+            <button className="h-6 bg-transparent">
+              <IconListView style={{cursor: 'pointer', color: '#666666'}} />
+            </button>
           </div>
         </div>
       </div>
