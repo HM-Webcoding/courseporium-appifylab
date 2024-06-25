@@ -23,12 +23,15 @@ const MarketPlaceCard = ({
       <div className="flex h-full flex-col justify-between rounded-2xl bg-bg px-5 pb-6 pt-5">
         {/* card top part */}
         <div>
-          <div>
+          <div className="relative">
             <img
               src={cardImgUrl}
               alt="card image"
-              className="aspect-video max-w-full rounded-[10px]"
+              className=" aspect-video max-w-full rounded-[10px]"
             />
+            <span className="absolute left-2 top-2 rounded bg-[#FFC53D] px-2.5 py-1 text-lg">
+              BESTSALLER
+            </span>
           </div>
           <div>
             <h3 className="pb-[14px] pt-4 text-xl font-medium">{title}</h3>
