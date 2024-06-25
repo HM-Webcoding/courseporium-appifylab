@@ -86,7 +86,7 @@ const TopicCarousel = () => {
   const [activeTopic, setActiveTopic] = useState(DATA[0].label);
 
   const onChangeItem = (currentItem: number) => {
-    console.log(currentItem);
+    // console.log(currentItem);
     setCurrentSlide(currentItem);
   };
 
