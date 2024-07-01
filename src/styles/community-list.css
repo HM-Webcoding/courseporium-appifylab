@@ -5,7 +5,7 @@
 }
 
 .community-list-ant-design .ant-select-arrow {
-  @apply text-lg text-[#133F42];
+  @apply text-sm text-[#133F42];
 }
 .community-list-ant-design
   .ant-select:not(.ant-select-customize-input)
@@ -47,4 +47,10 @@
 }
 .ant-drawer-header-title {
   @apply justify-end;
+}
+
+.community-list-ant-design
+  .ant-select-single:not(.ant-select-customize-input)
+  .ant-select-selector {
+  @apply h-10;
 }

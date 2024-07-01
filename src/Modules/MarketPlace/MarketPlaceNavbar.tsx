@@ -31,6 +31,7 @@ const treeData = [
 ];
 
 const MarketPlaceNavbar = ({showDrawer}) => {
+  const [isGridView, setIsGridView] = useState(true);
   const [value, setValue] = useState<string | undefined>(undefined);
 
   const onChange = (newValue: string) => {
@@ -50,7 +51,7 @@ const MarketPlaceNavbar = ({showDrawer}) => {
           </span>
         </div>
       </div>
-      <div className="flex w-full justify-between gap-2.5 gap-y-4 sm:gap-x-[30px] md:w-auto">
+      <div className="flex w-full justify-between gap-1 gap-y-4 sm:gap-x-[30px] md:w-auto">
         {/* filter option */}
         <div className="flex items-center gap-2.5 sm:gap-6">
           <span className="text-base font-medium text-black">Sort by</span>
@@ -68,10 +69,15 @@ const MarketPlaceNavbar = ({showDrawer}) => {
         <div className="flex items-center gap-3">
           <span className="text-base font-medium text-black">View:</span>
           <div className="flex items-center gap-2 ">
-            <button className="h-8 bg-transparent">
+            <button
+              onClick={() => setIsGridView(true)}
+              className={`flex h-8 items-center bg-transparent p-1 transition-all duration-300 ease-in-out ${isGridView ? 'rounded bg-[#EAE8F8]' : ''}`}>
               <IconGridView style={{cursor: 'pointer', color: '#7B68EE'}} />
             </button>
-            <button className="h-6 bg-transparent">
+
+            <button
+              onClick={() => setIsGridView(false)}
+              className={`flex h-8 items-center bg-transparent p-1 transition-all duration-300 ease-in-out ${!isGridView ? 'rounded bg-[#EAE8F8]' : ''}`}>
               <IconListView style={{cursor: 'pointer', color: '#666666'}} />
             </button>
           </div>

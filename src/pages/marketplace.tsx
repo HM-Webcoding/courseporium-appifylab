@@ -1,10 +1,21 @@
 import Head from 'next/head';
-import {Pagination} from 'antd';
+import {Drawer, Pagination} from 'antd';
 import {FilterSidebar} from '@/Modules/MarketPlace/FilterSidebar';
 import {MainContent} from '@/Modules/MarketPlace/MainContent';
 import {TopicCarousel} from '@/Modules/MarketPlace/TopicCarousel';
+import {useState} from 'react';
 
 const Marketplace = () => {
+  const [open, setOpen] = useState(false);
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <Head>
@@ -49,9 +60,17 @@ const Marketplace = () => {
               <div className="h-full w-full rounded-2xl bg-white p-6 sm:min-w-[258px] sm:max-w-[242px]">
                 <FilterSidebar />
               </div>
+              <Drawer
+                placement="left"
+                onClose={onClose}
+                open={open}
+                width={260}
+                className=" md:hidden">
+                <FilterSidebar />
+              </Drawer>
               {/* main content */}
               <div>
-                <MainContent />
+                <MainContent showDrawer={showDrawer} />
               </div>
             </div>
             {/* Pagination section start */}
