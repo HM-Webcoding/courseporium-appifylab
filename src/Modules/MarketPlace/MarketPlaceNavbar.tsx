@@ -30,7 +30,7 @@ const treeData = [
   },
 ];
 
-const MarketPlaceNavbar = ({showDrawer}) => {
+const MarketPlaceNavbar = ({showDrawer}: any) => {
   const [isGridView, setIsGridView] = useState(true);
   const [value, setValue] = useState<string | undefined>(undefined);
 
@@ -71,13 +71,13 @@ const MarketPlaceNavbar = ({showDrawer}) => {
           <div className="flex items-center gap-2 ">
             <button
               onClick={() => setIsGridView(true)}
-              className={`flex h-8 items-center bg-transparent p-1 transition-all duration-300 ease-in-out ${isGridView ? 'rounded bg-[#EAE8F8]' : ''}`}>
+              className={`flex h-8 items-center p-1 transition-all duration-300 ease-in-out ${isGridView ? 'rounded bg-[#EAE8F8]' : 'bg-transparent '}`}>
               <IconGridView style={{cursor: 'pointer', color: '#7B68EE'}} />
             </button>
 
             <button
               onClick={() => setIsGridView(false)}
-              className={`flex h-8 items-center bg-transparent p-1 transition-all duration-300 ease-in-out ${!isGridView ? 'rounded bg-[#EAE8F8]' : ''}`}>
+              className={`flex h-8 items-center  p-1 transition-all duration-300 ease-in-out ${!isGridView ? 'rounded bg-[#EAE8F8]' : 'bg-transparent'}`}>
               <IconListView style={{cursor: 'pointer', color: '#666666'}} />
             </button>
           </div>

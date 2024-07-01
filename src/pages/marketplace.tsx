@@ -57,7 +57,7 @@ const Marketplace = () => {
           <div className="container">
             <div className="flex flex-col items-start gap-y-12 md:flex-row md:gap-x-10">
               {/* marketplace filter sidebar */}
-              <div className="h-full w-full rounded-2xl bg-white p-6 sm:min-w-[258px] sm:max-w-[242px]">
+              <div className="hidden h-full w-full rounded-2xl bg-white p-6 sm:min-w-[258px] sm:max-w-[242px] md:block">
                 <FilterSidebar />
               </div>
               <Drawer
